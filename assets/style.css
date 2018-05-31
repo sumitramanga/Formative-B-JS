@@ -115,6 +115,7 @@
     background: #F7C3EA;
 }
 
+
 /*--------------font-----------------*/
 .handwriting{
     font-family: 'Pacifico', cursive;
@@ -128,8 +129,8 @@
     font-family: 'Sigmar One', cursive;
 }
 
-/*--------------border-----------------*/
 
+/*--------------border-----------------*/
 .noneBorder:after{
     border: none;
 }
