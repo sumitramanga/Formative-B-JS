@@ -9,11 +9,20 @@
 
   var storageArray = [];
 
-  console.dir(getBgOption);
+  // console.dir(getBgOption);
 
   $('#message').click(function(){
-    console.log('working');
-    // storageArray.push(getBgOption);
+    // console.dir(getBgOption);
 
+    storageArray.push(getImageOption.value, getBgOption.value, getFontOption.value, getBorderOption.value, getMessage.value);
+    // console.log(storageArray);
+
+    // pop entire array
+    for (var i = 0; i < storageArray.length; i--) {
+      storageArray.pop();
+    }
+
+    console.log(storageArray + 'this one');
+    // stroage array holds all data. if storagearray[1]=.. do this.
   });
 }()); // IIFE Ends
