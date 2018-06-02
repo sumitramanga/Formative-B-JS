@@ -12,7 +12,7 @@
   console.dir(getBgOption);
 
   $('#message').click(function(){
-
+    console.log('working');
     // storageArray.push(getBgOption);
 
   });
