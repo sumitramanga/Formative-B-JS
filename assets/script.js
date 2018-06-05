@@ -10,7 +10,7 @@
   var getMessageOption = document.getElementById('message');
 
   // Grabbing the form button
-  var getButton = document.querySelector('pure-button');
+  var getButton = document.querySelector('.pure-button');
 
   // Grabbing sections of the card that is already dispalyed on the page
   var getCard = document.querySelector('.card');
@@ -20,11 +20,15 @@
 
   var storageArray = [];
 
-  $('#message').click(function(){
+  // Click event when clicking the 'Make card' button
+  getButton.addEventListener('click', createCard, false);
+
+  function createCard() {
 
     // Pushing all the values from the form into an array
     storageArray.push(getImageOption.value, getBgOption.value, getFontOption.value, getBorderOption.value, getMessageOption.value);
 
+    // Checking if the array is filled with data.
     console.log(storageArray);
 
     // Creating the card using he users options. This is done by grabbing the
@@ -40,15 +44,9 @@
     // according the border option name (<option value="smalleBorder">Thin</option>)
     // getBorder.classList.add(storageArray[3] + 'Border');
 
-
-    // Old method
-    // for (var i = storageArray.length; i > 0; i--) {
-    //   storageArray.pop();
-    // }
-
-
     // Adds or removes border. Remove method is used to to remove previous classes
-    // the user have submitted to the DOM
+    // the user have submitted to the DOM.
+
     if (getBorderOption.value === 'none') {
         getBorder.classList.remove('smallBorder', 'bigBorder', 'filledBorder');
         getBorder.classList.add('noneBorder');
@@ -57,7 +55,7 @@
       getBorder.classList.remove('noneBorder', 'bigBorder', 'filledBorder');
       getBorder.classList.add('smallBorder');
 
-    } else if(getBorderOption.value === 'thick') {
+    } else if (getBorderOption.value === 'thick') {
       getBorder.classList.remove('smallBorder', 'noneBorder', 'filledBorder');
       getBorder.classList.add('bigBorder');
 
@@ -67,6 +65,20 @@
     }
 
     storageArray.length = 0;
+
+    // Old method.
+    // for (var i = storageArray.length; i > 0; i--) {
+    //   storageArray.pop();
+    // }
+
+    // A function so that the page doesn't refresh
+    $("form").submit(function() {
+       return false;
+    });
+
+    // Checking if the array has emptied after the function has been outputted
     console.log(storageArray);
-  }); // Click function ends
+
+  } // createCard function ends
+
 }()); // IIFE Ends
